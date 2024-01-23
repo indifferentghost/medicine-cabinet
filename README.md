@@ -20,6 +20,15 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+### Database Setup
+
+This project uses [docker](https://www.docker.com/) to run a local instance of MongoDB.
+If you want to run the development database:
+
+```bash
+docker-compose up --build
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -37,6 +46,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - [orama](https://oramasearch.com/) run everywhere, in-memory, full text search db
 - [argon2](https://www.npmjs.com/package/argon2) bindings to the reference Argon2 implementation.
 - [nextjs](https://nextjs.org/) react framework
+- [docker](https://www.docker.com/) run anywhere containers
 
 ## Considerations
 
@@ -64,10 +74,13 @@ Even keeping the flat action, throwing the data into a sqlite is probably the wa
 No app is ever finished:
 - [ ] finish authentication login/logout
 - [ ] cleanup and make `my-scripts` look nice
+- [ ] Setup mongodb for production
 - [ ] centralize perscription schemas
 - [ ] search [skeletons](https://replicache.dev/), suspense, fallbacks, error handling
 - [ ] get [`instrumentation.ts`](https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation) to work (or remove it)
+  - get mongodb to work under instrementation
 - [ ] validate environment variables
+- [ ] update global colors
 - [ ] bring in more information from open.fda.gov
   - dosages
   - fill amounts
