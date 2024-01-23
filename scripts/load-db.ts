@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db } from "@/lib/memory";
 import drugs from "../drugs.json"; //  with { type: 'json' };
 import { insertMultiple } from "@orama/orama";
 import {

@@ -1,3 +1,3 @@
 export async function register() {
-  await import('./scripts/load-db')
+  // await import('./scripts/load-db')
 }

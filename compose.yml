@@ -1,0 +1,17 @@
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - db:/.next/database/db
+    networks:
+      - node-network
+    restart: always
+
+volumes:
+  db:
+
+networks:
+  node-network:
+    driver: bridge
