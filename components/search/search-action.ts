@@ -20,11 +20,7 @@ const searchValidation = object({
   ]),
 });
 
-export async function searchPerscriptions(
-  formData: FormData,
-  limit = 10,
-  offset = 0
-) {
+export async function searchPerscriptions(formData: FormData) {
   const result = safeParse(searchValidation, {
     search: formData.get("search"),
   });
@@ -39,8 +35,6 @@ export async function searchPerscriptions(
 
   const results = await search<typeof db, Output<typeof drugToSchema>>(db, {
     term: searchString,
-    limit,
-    offset,
   });
 
   return {
