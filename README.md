@@ -1,17 +1,3 @@
-Here's the app:
-Simple medicine cabinet,
-search for "prescriptions"
-have a static list of prescriptions on the backend (fake data)
-hit api to return your search
-show it to the user in a "prescription card"
-allow them to save it to their medicine cabinet
-show them their medicine cabinet, allow delete
-I'd like you to save it in a database, but dont worry about spinning up a real database, just write the code for it and maybe stub it out.
-Ideal stack, nextjs tailwind typescript, postgres or mongo, whichever.
-Try not to spend more than 8 hours on it if possible.
-try to build it to be semi real from a user perspective, add fun tailwind components, etc etc, put some thought into the page itself. its as much a front end task as it is a backend.
-
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -43,8 +29,50 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## The Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [valibot](https://valibot.dev/) schema library with bundle size, type safety and developer experience in mind
+- [shadcn/ui](https://ui.shadcn.com/) copy and paste react, [radix-ui](https://www.radix-ui.com/), [tailwindcss](https://tailwindcss.com/) components
+- [mongodb](https://www.mongodb.com/) document database
+- [orama](https://oramasearch.com/) run everywhere, in-memory, full text search db
+- [argon2](Bindings to the reference Argon2 implementation.) bindings to the reference Argon2 implementation.
+- [nextjs](https://nextjs.org/) react framework
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Considerations
+
+### Drug list
+
+`drug.json` came from the [NDC Directory](https://open.fda.gov/apis/drug/ndc/) and is 100 items.
+There's a full FDA approved list that is 24mb zipped and 250mb~ unzipped. Keeping to the _static list of perscriptions_*
+a [flat data](https://githubnext.com/projects/flat-data/) action is a viable option. By default GitHub [blocks files larger than 100mb](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github#file-size-limits). Though this can be circumvented by [large file storage](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage)
+
+Additional info:
+- Github Action Runners have [14gb of ram](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories)
+- the flat action [uses deno](https://github.com/marketplace/actions/flat-data#why-deno)
+  - there's a repo of [postprocessing for flat data](https://github.com/githubocto/flat-postprocessing/tree/main)
+  - because of the large file we might need to [stream the json](https://workers.tools/json-stream/#limitations)
+  - orama was partially chosen as it works with Deno too
+
+\* personal limitation, there's better ways to store the data
+
+#### Improvements
+
+Even keeping the flat action, throwing the data into a sqlite is probably the way to go.
+
+### Continuations
+
+No app is ever finished:
+- [ ] finish authentication login/logout
+- [ ] cleanup and make `my-scripts` look nice
+- [ ] centralize perscription schemas
+- [ ] search [skeletons](https://replicache.dev/), suspense, fallbacks, error handling
+- [ ] get [`instrumentation.ts`](https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation) to work (or remove it)
+- [ ] validate environment variables
+- [ ] bring in more information from open.fda.gov
+  - dosages
+  - fill amounts
+- [ ] user fill out extra data on perscriptions
+- [ ] bring in an ORM
+- [ ] paginate search
+- [ ] integrate caliendar and email when perscriptions should be getting low
+- [ ] experiment with [replicache](https://replicache.dev/) for offline support
