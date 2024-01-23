@@ -35,7 +35,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - [shadcn/ui](https://ui.shadcn.com/) copy and paste react, [radix-ui](https://www.radix-ui.com/), [tailwindcss](https://tailwindcss.com/) components
 - [mongodb](https://www.mongodb.com/) document database
 - [orama](https://oramasearch.com/) run everywhere, in-memory, full text search db
-- [argon2](Bindings to the reference Argon2 implementation.) bindings to the reference Argon2 implementation.
+- [argon2](https://www.npmjs.com/package/argon2) bindings to the reference Argon2 implementation.
 - [nextjs](https://nextjs.org/) react framework
 
 ## Considerations
