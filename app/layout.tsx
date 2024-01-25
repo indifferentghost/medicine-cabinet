@@ -26,7 +26,7 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
           disableTransitionOnChange
         >
           <div className="absolute right-4 top-4">
-          <ModeToggle />
+            <ModeToggle />
           </div>
           {children}
           <Toaster />
