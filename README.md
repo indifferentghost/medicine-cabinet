@@ -2,16 +2,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+This application defaults to using [pnpm](https://pnpm.io/) as a package manager. This includes a ["packageManager" field](https://nodejs.org/api/packages.html#packagemanager) in the `package.json`. This field is used by [corepack](https://nodejs.org/api/corepack.html), an experimental package management system.
+
+First, install
 
 ```bash
+pnpm i # recommended
+# or
+npm i
+```
+
+Then, run the development server:
+
+```bash
+pnpm dev # recommended
+# or
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -22,7 +28,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ### Database Setup
 
-This project uses [docker](https://www.docker.com/) to run a local instance of MongoDB.
+This project uses [docker compose](https://docs.docker.com/compose/gettingstarted/) to run a local instance of MongoDB.
 If you want to run the development database:
 
 ```bash
@@ -47,6 +53,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - [argon2](https://www.npmjs.com/package/argon2) bindings to the reference Argon2 implementation.
 - [nextjs](https://nextjs.org/) react framework
 - [docker](https://www.docker.com/) run anywhere containers
+- [pnpm](https://pnpm.io/) an efficient package manager
+- [nvm](https://github.com/nvm-sh/nvm) node version management
 
 ## Considerations
 
