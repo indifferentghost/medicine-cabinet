@@ -26,7 +26,7 @@ export async function searchPerscriptions(formData: FormData) {
   });
 
   if (!result.success) {
-    throw new Error(`${flatten(result.issues).nested}`);
+    throw new Error(JSON.stringify(flatten(result.issues).nested));
   }
 
   const {
