@@ -3,13 +3,28 @@ import { db } from "@/lib/memory";
 import { auth } from "@/lib/auth";
 import { drugToSchema } from "@/scripts/load-db";
 import { search } from "@orama/orama";
-import { redirect } from "next/navigation";
 import { Output } from "valibot";
+import { PerscriptionCard } from "@/components/perscription-card";
+import { RocketIcon } from "lucide-react";
+
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default async function MyScripts() {
   const session = await auth();
-  if (!session) redirect("/");
-  console.log(session)
+
+  if (!session) {
+    return (
+      <>
+        <Alert>
+          <RocketIcon className="h-4 w-4" />
+          <AlertTitle>You&apos;re not logged in!</AlertTitle>
+          <AlertDescription>
+            You&apos;d be able to see a lot more if you did!
+          </AlertDescription>
+        </Alert>
+      </>
+    );
+  }
 
   const perscriptions = await getPerscriptions();
   if (!perscriptions) {
@@ -28,5 +43,11 @@ export default async function MyScripts() {
 
   if (!scripts.length) return <>no perscriptions to display</>;
 
-  return <>{scripts}</>;
+  return (
+    <section role="list">
+      {scripts.map((v) => (
+        <PerscriptionCard key={v.product_ndc} {...v} />
+      ))}
+    </section>
+  );
 }

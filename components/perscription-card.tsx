@@ -16,7 +16,7 @@ import { TextMuted } from "./ui/typography";
 export function PerscriptionCard({
   hasPerscription,
   ...drug
-}: Drug & { hasPerscription: boolean }) {
+}: Drug & { hasPerscription?: boolean }) {
   return (
     <Card className="h-full flex flex-col">
       <CardHeader className="pb-4">
