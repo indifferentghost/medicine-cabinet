@@ -76,7 +76,7 @@ No app is ever finished:
 - [ ] cleanup and make `my-scripts` look nice
 - [ ] Setup mongodb for production
 - [ ] centralize perscription schemas
-- [ ] search [skeletons](https://replicache.dev/), suspense, fallbacks, error handling
+- [ ] search [skeletons](https://ui.shadcn.com/docs/components/skeleton), suspense, fallbacks, error handling
 - [ ] get [`instrumentation.ts`](https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation) to work (or remove it)
   - get mongodb to work under instrementation
 - [ ] validate environment variables
