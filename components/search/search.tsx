@@ -4,7 +4,7 @@ import { useFormStatus } from "react-dom";
 
 export const Search = <T extends (formdata: FormData) => void>({ search }: { search: T }) => {
   return (
-    <form action={search} className="px-5 flex items-center justify-center border-2 border-border rounded-lg bg-background h-10 w-72 group transition-all duration-250 ease-in-out hover:border-secondary-foreground focus-within:border-secondary-foreground focus-within:w-full">
+    <form action={search} className="px-5 flex items-center justify-center border-2 border-border rounded-lg bg-background h-10 w-72 group transition-all duration-250 ease-in-out has-[button:focus]:w-72 hover:border-secondary-foreground focus-within:border-secondary-foreground focus-within:w-full">
       <label htmlFor="search" className="sr-only">
         Search Perscriptions
       </label>
