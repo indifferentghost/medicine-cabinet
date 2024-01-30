@@ -1,10 +1,13 @@
 /// <reference types="react-dom/experimental" />
-/// <reference types="@auth/core" />
+/// <reference types="@auth/core/adapters" />
 
-declare module '@auth/core' {
-  interface AdapterUser {
+import { adapter } from '@auth/core';
+
+declare module '@auth/core/adapters' {
+  interface AdapterUser extends adapter.AdapterUser {
     password: string;
   }
+  export const adapter = adapter;
 }
 
 type ThemeColors = 'card' | 'popover' | 'primary' | 'secondary' | 'muted' | 'accent' | 'destructive'
